@@ -13,7 +13,6 @@ const PaginatedList = () => {
 
   const handlePageChange = (event, newPage) => {
     setPage(newPage);
-    console.log(newPage, page);
   };
 
   return (

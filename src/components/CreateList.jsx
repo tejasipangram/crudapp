@@ -21,13 +21,13 @@ const style = {
   p: 4,
 };
 
-export default function BasicModal({ id, name, title, body }) {
-  const { updateList } = React.useContext(GlobalContext);
+export default function CreateList({ name }) {
+  const { createList } = React.useContext(GlobalContext);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [modalTitle, setModalTitle] = React.useState(title);
-  const [modalBody, setModalBody] = React.useState(body);
+  const [modalTitle, setModalTitle] = React.useState("");
+  const [modalBody, setModalBody] = React.useState("");
 
   const onChangeTitleHandler = (e) => {
     setModalTitle(e.target.value);
@@ -37,7 +37,7 @@ export default function BasicModal({ id, name, title, body }) {
   };
 
   const saveHandler = async () => {
-    await updateList(id, modalTitle, modalBody);
+    await createList(modalTitle, modalBody);
     setModalBody("");
     setModalTitle("");
     handleClose();
